@@ -68,10 +68,10 @@ public class UserBO extends DatabaseConnectionManager {
                 user.setId(userData.getUser_id());
                 user.setSession_id(null);
                 UserDAO.getInstance().updateSession(user, userData.getSchema_name(), db);
-                
-                isActive = false;
-            }else{
                 isActive = true;
+                
+            }else{
+                isActive = false;
             }
         } catch (Exception e) {
         }

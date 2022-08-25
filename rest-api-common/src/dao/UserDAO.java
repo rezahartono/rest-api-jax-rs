@@ -118,7 +118,7 @@ public class UserDAO {
     
     public boolean sessionCheck(JWTUserData userData, Connection db) {
         int numberOfRow = 0;
-        String query = "SELECT COUNT(*) FROM " + userData.getSchema_name() + ".\"USERS\" WHERE "+"\"id\" = ? AND "+"\"session_id\" = ?";
+        String query = "SELECT COUNT(*) FROM " + userData.getSchema_name() + ".\"USERS\" WHERE \"id\" = ? AND \"session_id\" = ?";
 
         System.out.println("query =>> " + query);
 

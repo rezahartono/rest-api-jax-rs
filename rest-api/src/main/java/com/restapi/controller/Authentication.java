@@ -55,7 +55,6 @@ public class Authentication extends RestCommon {
 
     public Response sessionCheck(UriInfo uri, String authorization) {
         Response result = null;
-        UserVO user = new UserVO();
         JWTUserData userData = new JWTUserData();
         boolean isVerified = false;
 
@@ -97,7 +96,7 @@ public class Authentication extends RestCommon {
                 isVerified = false;
             }
 
-            if (userData != null & isVerified) {
+            if (userData != null && isVerified) {
                 isVerified = UserBO.getInstance().signOut(userData);
             }
 
