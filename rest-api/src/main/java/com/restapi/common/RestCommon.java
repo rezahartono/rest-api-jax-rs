@@ -9,6 +9,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import common.SettingConstant;
 import java.time.Instant;
@@ -94,7 +95,8 @@ public class RestCommon {
                         jwtData.setSession_id(jwt.getClaim(SettingConstant.JWTInformationData.SESSION_ID).toString().replaceAll("\"", ""));
                         jwtData.setSchema_name(jwt.getClaim(SettingConstant.JWTInformationData.SCHEMA_NAME).toString().replaceAll("\"", ""));
                     }
-                } catch (Exception e) {
+                } catch (JWTVerificationException e) {
+                    System.out.println("error ==> "+e);
                 }
             }
         }
